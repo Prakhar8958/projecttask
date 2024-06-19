@@ -1,6 +1,6 @@
 # Project Management App
 
-This is a Project Management web application built using Spring Boot and In Memory-Database. The application provides functionalities for users manage tasks, and handle Crud Operations.
+This is a Project Management web application built using Spring Boot and In Memory-Database. The application provides functionalities for users manage tasks, and handle Crud Operations and proper Exception Handling also include.
 
 ## Features
 
@@ -11,5 +11,5 @@ This is a Project Management web application built using Spring Boot and In Memo
 
 - **Backend**: Java, Spring Boot
 - **Frontend-UI**: Swagger-Api
-- **Database**: MySQL
+- **Database**: In Memory-Database
 - **Security**: Spring Security
