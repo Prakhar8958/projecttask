@@ -34,4 +34,9 @@ public class Project {
 
     @UpdateTimestamp
     private LocalDateTime updated;
+
+    public Project(String s, String s1) {
+        this.name = s;
+        this.description = s1;
+    }
 }

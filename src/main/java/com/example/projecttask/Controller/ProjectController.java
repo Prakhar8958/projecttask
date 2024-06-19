@@ -29,7 +29,13 @@ public class ProjectController {
 
     @GetMapping("/getAllProjects")
     public ResponseEntity<List<Project>> getAllProjects(){
-        return projectService.getAllProjects();
+        ResponseEntity<List<Project>> allProjects =null;
+        try{
+            allProjects=projectService.getAllProjects();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return allProjects;
     }
 
     @GetMapping("/getProjectByIdOrName")
