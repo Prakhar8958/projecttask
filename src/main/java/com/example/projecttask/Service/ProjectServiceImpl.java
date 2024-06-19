@@ -1,5 +1,6 @@
 package com.example.projecttask.Service;
 
+import com.example.projecttask.Exceptions.Exception;
 import com.example.projecttask.Model.Project;
 import com.example.projecttask.Repository.ProjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.*;
 
@@ -42,7 +44,7 @@ public class ProjectServiceImpl implements ProjectService {
     public ResponseEntity<List<Project>> getProjectsByIdOrName(String id, String name) {
 
         if (id != null) {
-            return new ResponseEntity<>(List.of(projectrepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Project not found"))), HttpStatus.OK);
+            return new ResponseEntity<>(List.of(projectrepo.findById(id).orElseThrow(() -> new Exception("User not found by this Id"+id))), HttpStatus.OK);
         } else if (name != null) {
             return new ResponseEntity<>(projectrepo.findByName(name), HttpStatus.OK);
         }
@@ -59,7 +61,7 @@ public class ProjectServiceImpl implements ProjectService {
             Project project = (Project) projectrepo.findByName(name);
             projectrepo.delete(project);
         } else {
-            throw new IllegalArgumentException("Project ID or Name must be provided.");
+            throw new Exception("Project ID or Name must be provided.");
         }
 
         try {
